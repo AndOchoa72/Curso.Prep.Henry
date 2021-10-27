@@ -1,0 +1,27 @@
+{
+  "terminal.integrated.profiles.windows": {
+  "PowerShell": {
+    "source": "PowerShell",
+    "icon": "terminal-powershell"
+  },
+  "Command Prompt": {
+    "path": [
+      "${env:windir}\\Sysnative\\cmd.exe",
+      "${env:windir}\\System32\\cmd.exe"
+    ],
+    "args": [],
+    "icon": "terminal-cmd"
+  },
+  "Git Bash": {
+    "path": ["C:\\Programas\\Git\\bin\\bash.exe"],
+    "icon": "terminal-bash"
+  },
+  // Add your custom one with a different profile name from "Git Bash"
+  "GitBash": {
+    "path": "C:\\Programas\\Git\\bin\\bash.exe",
+    "icon": "terminal-bash"
+  }
+  },
+  // Set the custom profile as default
+  "terminal.integrated.defaultProfile.windows": "GitBash"
+}
