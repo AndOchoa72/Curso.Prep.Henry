@@ -26,8 +26,7 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  for (var i = 0 ; i < array.length ; i++) 
-    array[i] = array[i] + 1;
+  array.forEach((elem, indx) => array[indx]++ );
   return(array);
 }
 
@@ -57,7 +56,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return(palabras.join(' ');
+  return(palabras.join(' '));
 }
 
 
@@ -74,11 +73,7 @@ function agregarNumeros(numeros) {
   // Suma todos los enteros y devuelve el valor
   // Tu código:
   var miSuma = 0;
-  var i = 0;
-  while (i < numeros.length) do {
-    miSuma = miSuma + numeros[i];
-    i++;
-    }
+  numeros.forEach((elem) => miSuma = miSuma + elem );
   return(miSuma);
 }
 
@@ -88,11 +83,8 @@ function promedioResultadosTest(resultadosTest) {
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
   var miSuma = 0;
-  var i = 0;
-  while (i < resultadosTest.length) do {
-    miSuma = miSuma + resultadosTest[i];
-    i++;
-    }
+  var miCant = 0;
+  resultadosTest.forEach((elem) => miSuma = miSuma + elem);
   return(miSuma / resultadosTest.length);
 }
 
@@ -102,11 +94,7 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   var miMax = 0;
-  var i = 0;
-  while (i < numeros.length) do {
-    miMax = Math.max(miMax, numeros[i]);
-    i++;
-    }
+  numeros.forEach((elem) => miMax = Math.max(miMax, elem));
   return(miMax);
 }
 
@@ -117,11 +105,8 @@ function multiplicarArgumentos() {
   // Escribe tu código aquí:
   if (arguments.length === 0) return(0);
   var miMul = 1;
-  var i = 0;
-  while (i < arguments.length) do {
+  for (var i=0; i < arguments.length; i++) 
     miMul = miMul * arguments[i];
-    i++;
-    }
   return(miMul);
 }
 
@@ -130,7 +115,10 @@ function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
   var miCuenta = 0;
-  arreglo.forEach(elemento) => if (elemento > 18) miCuenta++;
+  arreglo.forEach((elem) => {
+    if (elem > 18)
+      miCuenta++
+  });
   return(miCuenta);
 }
 
@@ -161,12 +149,9 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  const ele = arreglo[0];
-  var i = 1
-  while (i < arreglo.length) do {
-    if (ele !== arreglo[i]) return(false);
-    i++;
-    }
+  const ele1 = arreglo[0];
+  for (var i = 1; i < arreglo.length; i++) 
+    if (ele1 !== arreglo[i]) return(false);
   return(true);
 } 
 
@@ -179,12 +164,15 @@ function mesesDelAño(array) {
   
   var miAr0 = ['Enero','Marzo','Noviembre'];
   var miAr = [];
-  miAr0.forEach(miMes) 
-    if (!(array.includes(miMes)))
-      return('No se encontraron los meses pedidos');
-    else
-      miAr = miAr + miMes;
-  return(miAr);
+  array.forEach((unMes) => {
+    if (miAr0.includes(unMes))
+      if (!(miAr.includes(unMes)))
+        miAr.push(unMes);
+  });
+  if (miAr.length === miAr0.length)
+    return(miAr);
+  else
+    return('No se encontraron los meses pedidos')
 }
 
 
@@ -193,8 +181,9 @@ function mayorACien(array) {
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
   var miAr = [];
-  array.forEach(miNum)
+  array.forEach((miNum) => {
     if (miNum > 100) miAr.push(miNum);
+  });
   return(miAr);
 }
 
@@ -203,10 +192,21 @@ function breakStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
   //Guardar cada nuevo valor en un array. 
   //Devolver el array
-  //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
-  //devolver: "Se interrumpió la ejecución"
+  //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden,
+  //debe interrumpirse la ejecución y devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  var miSum = numero;
+  var miAr = [];
+  for ( var i = 0; i < 10; i++) {
+    miSum = numero + ( 2 * i );
+    if (miSum === i) break;
+    miAr.push(miSum + 2);
+  }
+  if (miAr.length !== 10) 
+    return('Se interrumpió la ejecución');
+  else
+    return(miAr);
 }
 
 
@@ -214,9 +214,18 @@ function continueStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
   //Guardar cada nuevo valor en un array.    
   //Devolver el array
-  //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
+  //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso
+  // y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var miSum = numero;
+  var miAr = [];
+  for ( var i = 0; i < 10; i++) {
+    if (i === 5) continue;
+    miSum = miSum + 2;
+    miAr.push(miSum);
+  }
+  return(miAr);
 }
 
 
