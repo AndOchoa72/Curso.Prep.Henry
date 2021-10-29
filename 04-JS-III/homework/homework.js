@@ -122,13 +122,16 @@ function multiplicarArgumentos() {
     miMul = miMul * arguments[i];
     i++;
     }
+  return(miMul);
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-
+  var miCuenta = 0;
+  arreglo.forEach(elemento) => if (elemento > 18) miCuenta++;
+  return(miCuenta);
 }
 
 
@@ -137,7 +140,10 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  
+  if ((numeroDeDia === 1) || (numeroDeDia === 7))
+      return('Es fin de semana')
+    else
+      return('Es dia Laboral');
 } 
 
 
@@ -145,7 +151,9 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+  var miStr = '';
+  miStr = '' + n;
+  return(miStr[0] === '9');
 }
 
 
