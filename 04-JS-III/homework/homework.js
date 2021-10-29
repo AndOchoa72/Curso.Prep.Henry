@@ -199,9 +199,9 @@ function breakStatement(numero) {
   var miSum = numero;
   var miAr = [];
   for ( var i = 0; i < 10; i++) {
-    miSum = numero + ( 2 * i );
     if (miSum === i) break;
-    miAr.push(miSum + 2);
+    miSum = miSum + 2;
+    miAr.push(miSum);
   }
   if (miAr.length !== 10) 
     return('Se interrumpió la ejecución');
