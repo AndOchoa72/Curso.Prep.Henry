@@ -47,6 +47,7 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // Pista: usa el método `.unshift`
   // Tu código:
   array.unshift(elemento);
+  return(array);
 }
 
 
@@ -64,7 +65,7 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  return()
+  return(array.includes(elemento));
 }
 
 
@@ -72,6 +73,13 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
+  var miSuma = 0;
+  var i = 0;
+  while (i < numeros.length) do {
+    miSuma = miSuma + numeros[i];
+    i++;
+    }
+  return(miSuma);
 }
 
 
@@ -79,6 +87,13 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  var miSuma = 0;
+  var i = 0;
+  while (i < resultadosTest.length) do {
+    miSuma = miSuma + resultadosTest[i];
+    i++;
+    }
+  return(miSuma / resultadosTest.length);
 }
 
 
@@ -86,6 +101,13 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
+  var miMax = 0;
+  var i = 0;
+  while (i < numeros.length) do {
+    miMax = Math.max(miMax, numeros[i]);
+    i++;
+    }
+  return(miMax);
 }
 
 
@@ -93,6 +115,13 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  if (arguments.length === 0) return(0);
+  var miMul = 1;
+  var i = 0;
+  while (i < arguments.length) do {
+    miMul = miMul * arguments[i];
+    i++;
+    }
 }
 
 
